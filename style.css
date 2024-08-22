@@ -1,3 +1,8 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
 :root {
     --primary-color: #f8a203;
     --secondary-color: #1796b6;
@@ -13,7 +18,6 @@ body {
 }
 
 
-
 nav a:hover {
     color: #f8a203;
     /* Cor do texto quando o mouse passa por cima */
@@ -23,7 +27,6 @@ nav a:hover {
 
 .section {
     min-height: 100vh;
-    padding: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,23 +40,6 @@ nav a:hover {
     transform: translateY(0);
 }
 
-
-.bg-video {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-}
-
-.bg-video video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform: translate(-50%, -50%);
-}
 
 .bg-video .content,
 .bg-photo .content {
@@ -70,7 +56,6 @@ nav a:hover {
 }
 
 .bg-photo {
-    background-image: url('path/to/your/photo.jpg');
     background-size: cover;
     background-position: center;
     color: white;
@@ -358,16 +343,65 @@ footer {
     justify-content: center;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
+    #services #cards-section {
+        display: flex;
+
+
+
+    }
+
+
+}
+
+
+
+@media (max-width: 1000px) {
+    .row#about {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .row#about .img-fluid {
+        width: 80% !important;
+
+    }
+
+    .col-lg-6.mb-4.mb-lg-0 .img-fluid {
+        width: 80% !important;
+        margin-top: 20%;
+
+    }
+
+    .row#about .col-md-6 {
+        margin-top: 50px;
+    }
+
+    #services #cards-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+
     #services #cards-section .card {
-        width: 100%;
-        /* Os cartões ocuparão toda a largura disponível em telas menores */
-        margin: 10px 0;
-        /* Ajusta o espaçamento em dispositivos menores */
+        width: 90%;
     }
 
     #services #cards-section .card:nth-child(odd) {
-        margin-top: 20px;
-        /* Ajuste o zigue-zague para dispositivos menores */
+        margin-top: 5px;
     }
+
+    .bg-video .content,
+    .bg-photo .content {
+        width: 100%;
+    }
+
+    .timeline-wrapper .timeline {
+        display: flex;
+        flex-direction: column;
+    }
+
+
 }

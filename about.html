@@ -118,30 +118,49 @@
 </head>
 
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" aria-label="Navegação principal">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#" aria-label="Página inicial">
-                <img src="./images/logo.png" alt="Logo da QG - Inovação em Acessibilidade"
-                    style="width: auto; height: 80px;">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
-                <span class="navbar-toggler-icon"></span>
+     <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" aria-label="Navegação principal">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="./index.html" aria-label="Página inicial">
+        <img src="./images/logo.png" alt="Logo da QG - Inovação em Acessibilidade" style="width: auto; height: 80px;">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="./index.html" aria-label="Ir para a seção Home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./index.html#services" aria-label="Ir para a seção Serviços">Serviços</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#index.html#inscricao" aria-label="Ir para a seção Inscrição">Inscrição</a>
+          </li>
+          <li class="nav-item dropdown">
+            <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                Portfólio
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="./index.html" aria-label="Ir para a seção Home"
-                            style="color: #fff; display: flex; align-items: flex-start;">
-                            <img src="./icons/home.png" alt="icone de casa branco" style="width: 20px; height: auto;">
-                            Home
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+            <ul class="dropdown-menu dropdown-menu-dark" id="portfolio-dropdown">
+                <li>
+                    <a class="dropdown-item" href="index.html#portfolio" id="portfolio-projects">Projetos</a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="./galeria.html" id="portfolio-gallery">Galeria</a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="./noticias.html" id="portfolio-news">Notícias</a>
+                </li>
+            </ul>
+        </li>
+        
+        </ul>
+      </div>
+    </div>
+  </nav>
+
 
     <!-- Sobre Nós Section -->
     <section id="about" class="section bg-light py-5">
@@ -358,15 +377,11 @@
         <img src="./icons/seta.png" alt="Ícone de voltar ao topo">
     </a>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-        integrity="sha384-oBqDVmMz4fnFO9gO6ghfqeLBf48Oh9lC4zXxVYqF9BdY5T5oxsBvLEz7L7O8ZK1G"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-        integrity="sha384-5H6g+NfTo6oxpSMmDhHTDRhRMtHj1tt6W8Npx16wF1D+o6pPj9m02oZhz5/9c6v9"
+    <!--Código do Back-End-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const sections = document.querySelectorAll('.section');

@@ -53,6 +53,7 @@
       color: #ffffff;
       text-decoration: none;
     }
+
     .typing-text {
       white-space: nowrap;
       overflow: hidden;
@@ -60,10 +61,12 @@
       width: 0;
       animation: typing 5s steps(40, end);
     }
+
     @keyframes typing {
       from {
         width: 0;
       }
+
       to {
         width: 100%;
       }
@@ -86,9 +89,9 @@
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
             <a class="nav-link" href="./index.html" aria-label="Ir para a seção Home"
-                style="color: #fff; display: flex; align-items: flex-start;"><img src="./icons/home.png"
-                    alt="icone de casa branco" style="width: 20px; height: auto;">Home</a>
-        </li>
+              style="color: #fff; display: flex; align-items: flex-start;"><img src="./icons/home.png"
+                alt="icone de casa branco" style="width: 20px; height: auto;">Home</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -100,38 +103,16 @@
         <div class="content-header">
           <h2 id="typing-text"></h2>
         </div>
-        <div id="text-after-animation" style="display: none;">
-          <p>A 1ª Mostra de Cinema Independente de Prudente - Curta na Linha foi um sucesso!</p>
-          <p>Entre os filmes exibidos, destacaram-se:</p>
-          <ul>
-            <li><strong>O corvo</strong> – Lopine Chiaretto – Presidente Prudente: Baseado no poema de Edgar Allan Poe, o curta conta a história de Allan, um jovem que, atormentado pela morte de sua noiva, recebe uma visita inesperada.</li>
-            <li><strong>Passageiro Oculto</strong> – Aline Santos – Presidente Prudente: Uma reflexão diante dos distúrbios causados pela pressão social.</li>
-          <li><strong>Olhos Vendados</strong> – João Francisco – Presidente Prudente – Rancharia: Narra a história de
-            Nando, um jovem diagnosticado com autismo e fobia social que, estimulado por um psicanalista, descobre no
-            jogo de xadrez uma possibilidade de romper as barreiras de sua realidade.</li>
-          <li><strong>Uma winchester para três tumbas</strong> – Arlindo Filho – Presidente Prudente: Um xerife e um
-            coronel corruptos que matavam e roubavam homens de bem, até que surge um estranho para fazer justiça.</li>
-          <li><strong>Colherzinhas</strong> – André Aoki – Presidente Prudente: As alegrias e tristezas de um casal que
-            está aprendendo a conviver juntos, baseado na crônica de Moacyr Scliar.</li>
-          <li><strong>O lado oculto do bem</strong> – Alex Figueiras – Presidente Prudente: Lucas e seus amigos estão
-            jogando o jogo dos espíritos e resolvem tirar a prova de uma maldição.</li>
-          <li><strong>Letra Morta</strong> – Cristiano Soares – Marília: Juliano é um fotógrafo solitário que deve
-            enfrentar os fantasmas de um relacionamento mal resolvido ao voltar para sua cidade natal.</li>
-          <li><strong>Blecaute</strong> – Cristiano Soares – Marília: Amanda descobre que não está mais em sua casa após
-            um blecaute e isso é apenas o começo.</li>
-          <li><strong>De passagem</strong> – Aline Santos – Presidente Prudente: Performance poética baseada na obra e
-            vida de Arthur Bispo do Rosário.</li>
-          <li><strong>Enzima do Mal</strong> – Ciro Moreira – Presidente Prudente: Um médico cria uma poderosa enzima em
-            busca de fama e sucesso, mas algo sai errado.</li>
-          <li><strong>Carta de Adeus</strong> – Alex Figueiras – Presidente Prudente: Mateus busca liberdade na cidade
-            grande após uma visão em uma consulta com um oráculo.</li>
-          <li><strong>Sonhei com Hitchcock</strong> – Talita Galindo – Presidente Prudente: Arrulhar, penas, ouvido,
-            asas, cabeça, suor, unhas, tremor, bico, pavor. Não dou de comer aos pássaros.</li>
-        </ul>
-        <p>O evento, que lotou todas as sessões, tem planos de crescer e oferecer mais atividades e exibições futuras,
-          incluindo uma semana de cursos e a participação de crianças para aprender sobre cinema.</p>
+        <div class="banner-container">
+          <img src="./images/Conheça a QG filmes e toda a nossa historia (1).png" alt="Banner da Mostra Curta na Linha IV" style="width: 100%; height: auto; margin-top: 20px;">
+        </div>
+        <div id="text-after-animation" style="display: none; margin-top: 2%;">
+          <p>A Mostra Curta na Linha, em sua quarta edição, é um evento cultural de cinema independente que se destaca por sua abrangência e compromisso com a inclusão. Este ano, a mostra se internacionalizou, recebendo produções de diversas partes do mundo e reafirmando seu caráter acessível, com uma equipe que inclui profissionais com deficiência visual, auditiva, TEA e física.</p>
+          <p>Com o tema “Cinema e Inclusão”, o objetivo do evento é promover o cinema independente em níveis regional, nacional e internacional, incentivando a produção audiovisual na região. Ao longo da mostra, serão exibidas mais de 30 horas de conteúdo audiovisual, abrangendo curtas, médias e longas-metragens, organizados em quatro categorias: seleção regional, “Cinema para todos” (produzidos em oficinas formativas), mostra infanto-juvenil e maratona de cinema independente.</p>
+          <p>Além das exibições, a mostra busca aproximar o público da linguagem cinematográfica e contribuir para o desenvolvimento de habilidades entre profissionais da área. Para isso, oferece oficinas formativas e promove debates sobre a acessibilidade no audiovisual, abordando temas como recursos acessíveis, oportunidades de emprego e a inclusão de grupos minoritários na indústria criativa.</p>
+          <p>O evento também visa fortalecer a produção cultural local, proporcionar um espaço para o intercâmbio de experiências e reflexões sobre o cinema independente e contribuir para a construção de um mercado audiovisual mais inclusivo e diversificado. A programação completa e detalhes sobre os objetivos e atividades da mostra estão disponíveis nas redes sociais da QG Filmes.</p>
+        </div>
       </div>
-    </div>
   </main>
 
   <footer class="bg-dark text-white text-center">
@@ -162,7 +143,7 @@
     new window.VLibras.Widget('https://vlibras.gov.br/app');
     const typingText = document.getElementById('typing-text');
     const textAfterAnimation = document.getElementById('text-after-animation');
-    let text = '1ª Mostra de Cinema Independente de Prudente - Curta na Linha';
+    let text = 'Mostra Curta na Linha';
     let index = 0;
 
     function type() {
@@ -178,9 +159,12 @@
     type();
   </script>
 
+  <!--Código do Back-End-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-8AqjQ9erIgl8eUv8L7HcH95DkR1NtMj5I8pNwCINxLJ2bNU2m8O9wF+Mr/k1F5Pt"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
 </body>
 
 </html>
