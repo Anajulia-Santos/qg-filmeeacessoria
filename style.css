@@ -347,10 +347,7 @@ footer {
     #services #cards-section {
         display: flex;
 
-
-
     }
-
 
 }
 
@@ -375,7 +372,7 @@ footer {
     }
 
     .row#about .col-md-6 {
-        margin-top: 50px;
+        margin-top: x;
     }
 
     #services #cards-section {
