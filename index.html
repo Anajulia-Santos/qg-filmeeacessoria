@@ -19,7 +19,9 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top navbar-fixed" aria-label="Navegação principal">
     <div class="container-fluid">
       <a class="navbar-brand" href="./index.html" aria-label="Página inicial">
-        <img src="./images/logo.png" alt="Logo da QG - Inovação em Acessibilidade" style="width: auto; height: 80px;">
+        <img src="./images/logo.png"
+          alt="Logotipo da produtora QG Filmes com fundo transparente. O design apresenta uma asa estilizada à esquerda, composta por sete segmentos em tons de azul, verde e laranja, cada um apontando para a direita. À direita da asa, estão as letras QG em preto, com uma fonte moderna e levemente arredondada. Logo abaixo de QG, está escrito FILMES em letras maiores e em negrito, também na cor preta. Abaixo de FILMES, há o subtítulo CINEMA INDEPENDENTE em letras menores e finas. O contraste entre o fundo transparente e as cores vibrantes da asa dá ao logo um visual dinâmico e moderno, com foco na simplicidade e clareza."
+          style="width: auto; height: 80px;">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
@@ -61,51 +63,54 @@
   </nav>
 
   <!-- Home Section -->
-  <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
+  <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel"
+    aria-label="Carrossel de imagens">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <a href="./about.html"><img src="./images/Conheça a QG filmes e toda a nossa historia.png" class="d-block w-100"
-            alt="Banner 1"></a>
-        <div class="carousel-caption d-none d-md-block">
-        </div>
+        <a href="./about.html" aria-label="Conheça a QG Filmes e toda a nossa história">
+          <img src="./images/conhecaqgprincipal.png" class="d-block w-100"
+            alt="Imagem de fundo azul com texto 'Conheça a QG Filmes e toda a nossa história' e uma colagem de fotos.">
+        </a>
+        <div class="carousel-caption d-none d-md-block"></div>
       </div>
       <div class="carousel-item">
-        <a href="./projeto1.html"><img src="./images/Conheça a QG filmes e toda a nossa historia (1).png"
-            class="d-block w-100" alt="Banner 2"></a>
-      </div>
-      <div class="carousel-item">
-        <a href="./index.html#services"><img src="./images/Conheça a QG filmes e toda a nossa historia (2).png"
-            class="d-block w-100" alt="Banner 3"></a>
+        <a href="./projeto1.html" aria-label="Assessoria em acessibilidade em projetos culturais">
+          <img src="./images/banneracessibilidade.png" class="d-block w-100"
+            alt="Imagem de fundo azul claro com ícones de acessibilidade.">
+        </a>
       </div>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev"
+      aria-label="Imagem anterior">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="sr-only">Anterior</span>
     </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next"
+      aria-label="Próxima imagem">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only" style="color: #f8a203;">Seguinte</span>
     </a>
   </div>
 
-
-
   <!-- Sobre Nós Section -->
-  <section id="about" class="section bg-light">
+  <section id="about" class="section bg-light" aria-labelledby="about-title">
     <div class="container">
-      <h2 class="text-center">Sobre a QG Filmes - Inovação em Acessibilidade</h2>
+      <h2 class="text-center" id="about-title">Sobre a QG Filmes - Inovação em Acessibilidade</h2>
       <p class="text-center">A QG é uma empresa especializada em soluções inovadoras para tornar o mundo mais acessível
         a todos...</p>
-      <div class="row" style="display: flex; justify-content: center; " id="about">
+      <div class="row" style="display: flex; justify-content: center;">
         <div class="col-md-6">
-          <img src="./images/logop.png" alt="Equipe QG" class="img-fluid">
+          <img src="./images/logop.png"
+            alt="Logo da produtora independente de cinema QG Filmes. Design estilizado com asas e o texto QG Filmes."
+            class="img-fluid">
         </div>
-        <div class="col-md-6" style="display: flex; flex-direction: column;justify-content: center;
-            align-items: flex-start;">
+        <div class="col-md-6"
+          style="display: flex; flex-direction: column; justify-content: center; align-items: flex-start;">
           <p>Nossa equipe é composta por <span style="color:#f8a203;">profissionais apaixonados por cultura, inclusão e
               acessibilidade.</span> Juntos, desenvolvemos soluções que promovem um ambiente mais inclusivo e acessível
             para todos, garantindo que cada voz seja ouvida e cada necessidade atendida.</p>
-          <a href="./about.html" class="btn btn-primary">Saiba Mais <i class="fas fa-arrow-right"></i></a>
+          <a href="./about.html" class="btn btn-primary" aria-label="Saiba mais sobre a QG Filmes">Saiba Mais <i
+              class="fas fa-arrow-right"></i></a>
         </div>
       </div>
     </div>
@@ -124,9 +129,11 @@
             <img src="./images/mostra.png" class="card-img-top" alt="Imagem do Projeto 1"
               style="height: 200px; object-fit: cover; object-position: 1% ">
             <div class="card-body text-center">
-              <h5 class="card-title" style="font-size: 1.1rem; overflow-wrap: break-word"> Curta na Linha - Mostra Cultural</h5>
+              <h5 class="card-title" style="font-size: 1.1rem; overflow-wrap: break-word"> Curta na Linha - Mostra
+                Cultural</h5>
 
-              <a href="./projeto1.html" class="btn btn-primary" aria-label="Saiba mais sobre o Projeto 1">Saiba
+              <a href="./projeto1.html" class="btn btn-primary" aria-label="Saiba mais sobre o Projeto Curta na Linha - Mostra
+              Cultural">Saiba
                 Mais</a>
             </div>
           </div>
@@ -138,8 +145,10 @@
             <img src="./images/projeto2.webp" class="card-img-top" alt="Imagem do Projeto 1"
               style="height: 200px; object-fit: cover;">
             <div class="card-body text-center">
-              <h5 class="card-title" style="font-size: 1.1rem; overflow-wrap: break-word">Oficina de Cinema para Iniciantes</h5>
-              <a href="./projeto2.html" class="btn btn-primary" aria-label="Saiba mais sobre o Projeto 1">Saiba
+              <h5 class="card-title" style="font-size: 1.1rem; overflow-wrap: break-word">Oficina de Cinema para
+                Iniciantes</h5>
+              <a href="./projeto2.html" class="btn btn-primary" aria-label="Saiba mais sobre o Projeto ficina de Cinema para
+              Iniciantes">Saiba
                 Mais</a>
             </div>
           </div>
@@ -149,11 +158,11 @@
           <div class="card border-0 shadow-sm animate__animated animate__fadeIn animate__delay-2.5s"
             style="background-color: #f8f9fa;  height: 315px;">
             <img src="./images/projeto3.webp" class="card-img-top" alt="Imagem do Projeto 3"
-            style="height: 200px; object-fit: cover;">
+              style="height: 200px; object-fit: cover;">
             <div class="card-body text-center">
               <h5 class="card-title" style="font-size: 1.1rem; overflow-wrap: break-word">QG - Produções de Filmes</h5>
               <p class="card-text"></p>
-              <a href="./projeto3.html" class="btn btn-primary" aria-label="Saiba mais sobre o Projeto 3">Saiba
+              <a href="./projeto3.html" class="btn btn-primary" aria-label="Saiba mais sobre o Projeto QG - Produções de Filmes">Saiba
                 Mais</a>
             </div>
           </div>
@@ -162,11 +171,12 @@
         <div class="col-md-3 mb-4">
           <div class="card border-0 shadow-sm animate__animated animate__fadeIn animate__delay-3s"
             style="background-color: #f8f9fa;  height: 315px;">
-            <img src="./images/breve.jpg" class="card-img-top" alt="Imagem do Projeto 4"
+            <img src="./images/breve.jpg" class="card-img-top"
+              alt="Imagem de fundo laranja com as palavras 'EM BREVE' escritas em letras brancas no centro da imagem."
               style="height: 200px; object-fit: cover;">
             <div class="card-body text-center">
               <h5 class="card-title" style="font-size: 1.1rem; overflow-wrap: break-word">O Mundo de Alice...</h5>
-              <a href="./projeto4.html" class="btn btn-primary" aria-label="Saiba mais sobre o Projeto 4">Saiba
+              <a href="./projeto4.html" class="btn btn-primary" aria-label="Saiba mais sobre o Projeto O mundo de Alice">Saiba
                 Mais</a>
             </div>
           </div>
@@ -176,74 +186,101 @@
   </section>
 
 
-<!-- Serviços Section -->
-<section id="services" class="section bg-light">
+ <!-- Serviços Section -->
+<section id="services" class="section bg-light" aria-labelledby="services-title">
   <div class="container" id="services-container">
     <div class="row">
       <div class="col-md-6 text-section" id="text-section">
-        <h2 id="services-title">Serviços</h2>
-        <h1 id="help-title" style="color: #f8a203;">Como podemos te ajudar hoje?</h1>
+        <h2 id="services-title" aria-level="2" role="heading">Serviços</h2>
+        <h1 id="help-title" style="color: #f8a203;" aria-level="1" role="heading">Como podemos te ajudar hoje?</h1>
         <p id="text-description" style="overflow-wrap: break-word;">
-          Se você está buscando uma consultoria que possa cumprir prazos e oferecer suporte especializado para seus projetos culturais e de acessibilidade, você encontrou!
+          Se você está buscando uma consultoria que possa cumprir prazos e oferecer suporte especializado para seus
+          projetos culturais e de acessibilidade, você encontrou!
         </p>
         <a href="https://wa.me/18997346707?text=Olá!%20Estou%20interessado(a)%20nos%20serviços%20da%20QG%20-%20Inovação%20em%20Acessibilidade.%20Por%20favor,%20entre%20em%20contato%20para%20que%20possamos%20conversar%20mais%20sobre%20como%20posso%20aproveitar.%20Obrigado!"
-           class="button btn" id="contact-button" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 10px 20px; font-size: 1rem; text-align: center; background-color: #f8a203; color: #fff; ">
+          class="button btn" id="contact-button" target="_blank" rel="noopener noreferrer"
+          style="display: inline-block; padding: 10px 20px; font-size: 1rem; text-align: center; background-color: #f8a203; color: #fff;"
+          aria-label="Solicitar Contato">
           Solicitar Contato
         </a>
       </div>
-      <div class="col-md-6" id="cards-container">
-        <div class="cards-section" id="cards-section">
-          <div class="card primary" id="card-production" style="margin-bottom: 15px; padding: 15px; border: 1px solid #ddd; border-radius: 4px;">
-            <img src="./icons/producaoaudiovisual.png" alt="Produção Audiovisual" id="card-production-img" style="width: 60px; height: auto; display: block; margin: 0 auto;">
-            <h4 id="card-production-title" style="font-weight: bold; font-size: 1.1rem; overflow-wrap: break-word; text-align: center; margin: 10px 0;">
+      <div class="col-md-6" id="cards-container" aria-labelledby="cards-section">
+        <div class="cards-section" id="cards-section" role="region" aria-label="Seção de Cartões de Serviços">
+          <div class="card primary" id="card-production" aria-labelledby="card-production-title"
+            style="margin-bottom: 15px; padding: 15px; border: 1px solid #ddd; border-radius: 4px;">
+            <img src="./icons/producaoaudiovisual.png" alt="Produção Audiovisual" id="card-production-img"
+              style="width: 60px; height: auto; display: block; margin: 0 auto;" aria-hidden="true">
+            <h4 id="card-production-title" aria-level="3" role="heading"
+              style="font-weight: bold; font-size: 1.1rem; overflow-wrap: break-word; text-align: center; margin: 10px 0;">
               Produção Audiovisual
             </h4>
             <p class="card-text" id="card-production-text" style="overflow-wrap: break-word;">
               Oferecemos serviços de produção para filmes, curtas, documentários e muito mais.
             </p>
           </div>
-          <div class="card" id="card-editing" style="margin-bottom: 15px; padding: 15px; border: 1px solid #ddd; border-radius: 4px;">
-            <img src="./icons/edicao.png" alt="Edição e Pós-Produção" id="card-editing-img" style="width: 60px; height: auto; display: block; margin: 0 auto;">
-            <h4 class="card-title" id="card-editing-title" style="font-weight: bold; font-size: 1.1rem; overflow-wrap: break-word; text-align: center; margin: 10px 0;">
+          <div class="card" id="card-editing" aria-labelledby="card-editing-title"
+            style="margin-bottom: 15px; padding: 15px; border: 1px solid #ddd; border-radius: 4px;">
+            <img src="./icons/edicao.png" alt="Edição e Pós-Produção" id="card-editing-img"
+              style="width: 60px; height: auto; display: block; margin: 0 auto;" aria-hidden="true">
+            <h4 class="card-title" id="card-editing-title" aria-level="3" role="heading"
+              style="font-weight: bold; font-size: 1.1rem; overflow-wrap: break-word; text-align: center; margin: 10px 0;">
               Edição e Pós-Produção
             </h4>
             <p class="card-text" id="card-editing-text" style="overflow-wrap: break-word;">
-              Contamos com uma equipe de especialistas para cuidar da edição e pós-produção dos seus projetos audiovisuais.
+              Contamos com uma equipe de especialistas para cuidar da edição e pós-produção dos seus projetos
+              audiovisuais.
             </p>
           </div>
-          <div class="card" id="card-workshops" style="margin-bottom: 15px; padding: 15px; border: 1px solid #ddd; border-radius: 4px;">
-            <img src="./icons/workshop.png" alt="Workshops e Oficinas" id="card-workshops-img" style="width: 60px; height: auto; display: block; margin: 0 auto;">
-            <h4 class="card-title" id="card-workshops-title" style="font-weight: bold; font-size: 1.1rem; overflow-wrap: break-word; text-align: center; margin: 10px 0;">
+          <div class="card" id="card-workshops" aria-labelledby="card-workshops-title"
+            style="margin-bottom: 15px; padding: 15px; border: 1px solid #ddd; border-radius: 4px;">
+            <img src="./icons/workshop.png" alt="Workshops e Oficinas" id="card-workshops-img"
+              style="width: 60px; height: auto; display: block; margin: 0 auto;" aria-hidden="true">
+            <h4 class="card-title" id="card-workshops-title" aria-level="3" role="heading"
+              style="font-weight: bold; font-size: 1.1rem; overflow-wrap: break-word; text-align: center; margin: 10px 0;">
               Workshops e Oficinas
             </h4>
             <p class="card-text" id="card-workshops-text" style="overflow-wrap: break-word;">
-              Promovemos workshops e oficinas para capacitação na área de audiovisual, voltados para iniciantes e profissionais.
+              Promovemos workshops e oficinas para capacitação na área de audiovisual, voltados para iniciantes e
+              profissionais.
             </p>
           </div>
-          <div class="card primary" id="card-production" style="margin-bottom: 15px; padding: 15px; border: 1px solid #ddd; border-radius: 4px;">
-            <img src="./icons/acessoria.png" alt="Assessoria Cultural" id="card-cultural-img" style="width: 60px; height: auto; display: block; margin: 0 auto;">
-            <h4 class="card-title" id="card-cultural-title" style="font-weight: bold; font-size: 1.1rem; overflow-wrap: break-word; text-align: center; margin: 10px 0;">
+          <div class="card primary" id="card-cultural" aria-labelledby="card-cultural-title"
+            style="margin-bottom: 15px; padding: 15px; border: 1px solid #ddd; border-radius: 4px;">
+            <img src="./icons/acessoria.png" alt="Assessoria Cultural" id="card-cultural-img"
+              style="width: 60px; height: auto; display: block; margin: 0 auto;" aria-hidden="true">
+            <h4 class="card-title" id="card-cultural-title" aria-level="3" role="heading"
+              style="font-weight: bold; font-size: 1.1rem; overflow-wrap: break-word; text-align: center; margin: 10px 0;">
               Assessoria Cultural
             </h4>
             <p class="card-text" id="card-cultural-text" style="overflow-wrap: break-word;">
-              Oferecemos serviços completos de produção e assessoria para projetos culturais, ajudando a desenvolver e a promover iniciativas culturais de sucesso.
+              Oferecemos serviços completos de produção e assessoria para projetos culturais, ajudando a desenvolver e
+              a promover iniciativas culturais de sucesso.
             </p>
           </div>
-          <div class="card primary" id="card-production" style="margin-bottom: 15px; padding: 15px; border: 1px solid #ddd; border-radius: 4px;">
-            <img src="./icons/acessibilidade.png" alt="Acessibilidade em Eventos e Projetos" id="card-cultural-img" style="width: 60px; height: auto; display: block; margin: 0 auto;">
-            <h4 class="card-title" id="card-cultural-title" style="font-weight: bold; font-size: 1.1rem; overflow-wrap: break-word; text-align: center; margin: 10px 0;">
+          <div class="card primary" id="card-accessibility" aria-labelledby="card-accessibility-title"
+            style="margin-bottom: 15px; padding: 15px; border: 1px solid #ddd; border-radius: 4px;">
+            <img src="./icons/acessibilidade.png" alt="Acessibilidade em Eventos e Projetos" id="card-accessibility-img"
+              style="width: 60px; height: auto; display: block; margin: 0 auto;" aria-hidden="true">
+            <h4 class="card-title" id="card-accessibility-title" aria-level="3" role="heading"
+              style="font-weight: bold; font-size: 1.1rem; overflow-wrap: break-word; text-align: center; margin: 10px 0;">
               Acessibilidade em Eventos e Projetos
             </h4>
-            <p class="card-text" id="card-cultural-text" style="overflow-wrap: break-word;">
-              Oferecemos serviços completos de acessibilidade para garantir que todos possam participar e aproveitar nossos eventos e projetos.
+            <p class="card-text" id="card-accessibility-text" style="overflow-wrap: break-word;">
+              Oferecemos serviços completos de acessibilidade para garantir que todos possam participar e aproveitar
+              nossos eventos e projetos.
             </p>
           </div>
-          <div class="card" id="card-workshops" style="margin-bottom: 15px; padding: 15px; border: 1px solid #ddd; border-radius: 4px;">
-            <img src="./icons/cia.png" alt="Novos serviços em breve" id="card-workshops-img" style="width: 60px; height: auto; display: block; margin: 0 auto;">
-            <h4 class="card-title" id="card-workshops-title" style="font-weight: bold; font-size: 1.1rem; overflow-wrap: break-word; text-align: center; margin: 10px 0;">
-             CIA QG - Espaços Culturais e Acolhimento
+          <div class="card" id="card-cultural-spaces" aria-labelledby="card-cultural-spaces-title"
+            style="margin-bottom: 15px; padding: 15px; border: 1px solid #ddd; border-radius: 4px;">
+            <img src="./icons/cia.png" alt="Novos serviços em breve" id="card-cultural-spaces-img"
+              style="width: 60px; height: auto; display: block; margin: 0 auto;" aria-hidden="true">
+            <h4 class="card-title" id="card-cultural-spaces-title" aria-level="3" role="heading"
+              style="font-weight: bold; font-size: 1.1rem; overflow-wrap: break-word; text-align: center; margin: 10px 0;">
+              CIA QG - Espaços Culturais e Acolhimento
             </h4>
-            <p class="card-text" id="card-workshops-text" style="overflow-wrap: break-word;">Proporcionamos ambientes acolhedores e inclusivos para a realização de diversas manifestações culturais, incluindo exposições, apresentações, debates e eventos artísticos.</p>
+            <p class="card-text" id="card-cultural-spaces-text" style="overflow-wrap: break-word;">Proporcionamos ambientes
+              acolhedores e inclusivos para a realização de diversas manifestações culturais, incluindo exposições,
+              apresentações, debates e eventos artísticos.</p>
           </div>
         </div>
       </div>
@@ -252,16 +289,15 @@
 </section>
 
 
+<!-- Inscrição Section -->
+<section id="signup" class="section bg-photo" aria-labelledby="signup-title">
+  <div class="content" role="region" aria-label="Seção de Inscrição">
+    <h2 id="signup-title" style="color: #f8a203;" aria-level="2" role="heading">Junte-se a Nós!</h2>
+    <p id="signup-description">Clique no botão abaixo para se inscrever em nossas Oficinas e Workshops</p>
+    <a href="./todainscrição.html" class="btn btn-primary" aria-label="Inscrever-se agora">Inscreva-se Agora</a>
+  </div>
+</section>
 
-
-  <!-- Inscrição Section -->
-  <section id="signup" class="section bg-photo">
-    <div class="content">
-      <h2 style="color: #f8a203;">Junte-se a Nós!</h2>
-      <p>Clique no botão abaixo para se inscrever e contribuir para um futuro mais acessível</p>
-      <a href="./inscricao.html" class="btn btn-primary">Inscreva-se Agora</a>
-    </div>
-  </section>
 
 
   <!-- Inclua o plugin de LIBRAS -->
@@ -272,20 +308,19 @@
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container text-center">
-      <p>&copy; 2024 QG - Inovação em Acessibilidade. Todos os direitos reservados.</p>
-      <a href="https://www.instagram.com/qgfilmespp?igsh=MmVkYnBpdno2OGg3" target="_blank" rel="noopener noreferrer"
-        class="social-icon">
-        <img src="./icons/insta.png" alt="Instagram">
-      </a>
-      <a href="https://www.facebook.com/QGfilmesPP?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer"
-        class="social-icon">
-        <img src="./icons/face.png" alt="Facebook">
-      </a>
-    </div>
-  </footer>
+<!-- Footer -->
+<footer aria-label="Rodapé" role="contentinfo">
+  <div class="container text-center">
+    <p>&copy; 2024 QG - Inovação em Acessibilidade. Todos os direitos reservados.</p>
+    <a href="https://www.instagram.com/qgfilmespp?igsh=MmVkYnBpdno2OGg3" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Visite nosso Instagram">
+      <img src="./icons/insta.png" alt="Logotipo do Instagram" aria-hidden="true">
+    </a>
+    <a href="https://www.facebook.com/QGfilmesPP?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Visite nosso Facebook">
+      <img src="./icons/face.png" alt="Logotipo do Facebook" aria-hidden="true">
+    </a>
+  </div>
+</footer>
+
 
   <!---Voltar ao topo-->
   <a href="#" class="scroll-to-top" aria-label="Voltar ao topo">
