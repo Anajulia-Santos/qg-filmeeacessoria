@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QG Filmes e Consultoria</title>
+  <meta name="description"
+    content="QG - Inovação em Acessibilidade. Produção audiovisual, consultoria em projetos culturais e acessibilidade.">
+  <link rel="icon" href="./images/logop.png" type="image/png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff;
+      overflow-x: hidden;
+      /* base acessível para zoom */
+      font-size: 16px;
+    }
+
+    header.hero {
+      height: 100vh;
+      background: linear-gradient(to right, #f8a203, #1796b6);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+
+    header.hero h1 {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+
+    header.hero p {
+      font-size: 1.2rem;
+    }
+
+    .btn-main {
+      background-color: #fff;
+      color: #f8a203;
+      padding: 10px 25px;
+      border-radius: 50px;
+      border: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn-main:hover,
+    .btn-main:focus {
+      background-color: #f8a203;
+      color: #fff;
+      outline: 3px solid #004b61;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #f8a203;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .feature-box {
+      background: #f9f9f9;
+      border-radius: 10px;
+      padding: 30px;
+      transition: transform 0.3s ease;
+    }
+
+    .feature-box:hover {
+      transform: translateY(-5px);
+    }
+
+    footer {
+      background-color: #222;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .social-icon img {
+      height: 30px;
+      margin: 0 10px;
+    }
+
+    #ambitos {
+      background-color: #1796b6;
+      color: white;
+      position: relative;
+    }
+
+    .ambito-card {
+      background-color: #156a80;
+      border-radius: 15px;
+      padding: 20px;
+      height: 200px;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.5s ease;
+      perspective: 1000px;
+      position: relative;
+      overflow: hidden;
+      /* Acessível ao teclado */
+      outline: none;
+    }
+
+    .ambito-card:hover {
+      background-color: #f8a203;
+      color: #222;
+    }
+
+    .ambito-card .card-back {
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+      position: absolute;
+      inset: 0;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #fff;
+      color: #004b61;
+      border-radius: 15px;
+    }
+
+    .ambito-card:hover .card-front,
+    .ambito-card:focus .card-front,
+    .ambito-card[data-flipped="true"] .card-front {
+      opacity: 0;
+    }
+
+    .ambito-card:hover .card-back,
+    .ambito-card:focus .card-back,
+    .ambito-card[data-flipped="true"] .card-back {
+      opacity: 1;
+    }
+
+    .ambito-card h4 {
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+
+    .ambito-image-container {
+      width: 40%;
+      max-width: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .ambito-img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      display: block;
+
+      -webkit-mask-image:
+        linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0)),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0));
+      -webkit-mask-composite: intersect;
+
+      mask-image:
+        linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0)),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0));
+      mask-composite: intersect;
+    }
+
+    .oficinas-bloco {
+      background-color: #fdfdfd;
+      border-top: 6px solid #f8a203;
+      border-bottom: 6px solid #1796b6;
+      color: #004b61;
+    }
+
+    .oficinas-title {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #004b61;
+    }
+
+    .oficinas-desc {
+      font-size: 1.2rem;
+      color: #333;
+      line-height: 1.6;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .btn-inscricao {
+      background-color: #f8a203;
+      color: #fff;
+      padding: 12px 28px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 30px;
+      transition: 0.3s ease-in-out;
+      border: none;
+    }
+
+    .btn-inscricao:hover {
+      background-color: #1796b6;
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    .galeria-section {
+      background-color: #f8f9fa;
+      color: #004b61;
+    }
+
+    .galeria-title {
+      font-size: 2.3rem;
+      font-weight: bold;
+    }
+
+    .galeria-desc {
+      font-size: 1.1rem;
+      color: #555;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .galeria-card {
+      display: block;
+      background-color: #ffffff;
+      border: 2px solid #f8a203;
+      border-radius: 12px;
+      padding: 25px 20px;
+      text-decoration: none;
+      color: #004b61;
+      transition: all 0.3s ease-in-out;
+      height: 100%;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .galeria-card:hover {
+      background-color: #f8a203;
+      color: white;
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .galeria-card h5 {
+      font-size: 1.25rem;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .galeria-card p {
+      font-size: 0.95rem;
+      margin-top: 10px;
+      color: inherit;
+    }
+
+    .galeria-icon {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .galeria-secondary {
+      border-color: #1796b6;
+    }
+
+    .galeria-secondary:hover {
+      background-color: #1796b6;
+    }
+
+    .direcionamento-moderno {
+      background: linear-gradient(135deg, #fdfdfd 30%, #e0f7fb 100%);
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+
+    .direcionamento-titulo {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #004b61;
+    }
+
+    .bloco-direcionamento {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 40px 30px;
+      text-align: center;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      transition: all 0.4s ease-in-out;
+      height: 100%;
+    }
+
+    .bloco-direcionamento:hover {
+      transform: translateY(-6px);
+      background-color: #ffffff;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .bloco-direcionamento h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #004b61;
+      margin-top: 20px;
+    }
+
+    .bloco-direcionamento p {
+      font-size: 1rem;
+      color: #333;
+      margin: 15px 0;
+    }
+
+    .icone-direcionamento {
+      font-size: 3rem;
+      color: #f8a203;
+      transition: transform 0.4s ease;
+    }
+
+    .bloco-direcionamento:hover .icone-direcionamento {
+      transform: scale(1.2);
+    }
+
+    .bloco-direcionamento.consultoria .icone-direcionamento {
+      color: #1796b6;
+    }
+
+    .btn-direcionamento {
+      background-color: #f8a203;
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      font-weight: bold;
+      border-radius: 30px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .btn-direcionamento:hover {
+      background-color: #004b61;
+      color: white;
+    }
+    
+    /* =========================
+        ACESSIBILIDADE (ACRÉSCIMO)
+        ========================= */
+    /* Menu flutuante ♿ */
+    .acessibilidade-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .acessibilidade-btns {
+      display: none;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .acessibilidade-btns button {
+      background-color: #f8a203;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: transform 0.3s, background 0.3s;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+    }
+
+    .acessibilidade-btns button:hover,
+    .acessibilidade-btns button:focus {
+      transform: scale(1.15);
+      background-color: #1796b6;
+      outline: 3px solid #004b61;
+    }
+
+    .btn-acessibilidade-toggle {
+      background-color: #004b61;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: transform 0.3s, background 0.3s;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
+    }
+
+    .btn-acessibilidade-toggle:hover,
+    .btn-acessibilidade-toggle:focus {
+      transform: scale(1.15);
+      background-color: #1796b6;
+      outline: 3px solid #f8a203;
+    }
+
+    /* ---- Alto contraste CORRIGIDO ---- */
+    .high-contrast {
+        background-color: #000 !important;
+        color: #fff !important;
+    }
+
+    /* Regra "coringa" para forçar a herança em todos os elementos filhos. */
+    .high-contrast * {
+        background-color: transparent !important;
+        background-image: none !important; /* Remove gradientes e imagens de fundo */
+        color: inherit !important;
+        border-color: yellow !important;
+        box-shadow: none !important; /* Remove sombras */
+    }
+
+    /* Estiliza links, botões e elementos interativos para se destacarem */
+    .high-contrast a,
+    .high-contrast button,
+    .high-contrast [role="button"] {
+        color: yellow !important;
+        border: 2px solid yellow !important;
+    }
+
+    /* Garante que o estado :hover e :focus seja visível */
+    .high-contrast a:hover, .high-contrast button:hover, .high-contrast [role="button"]:hover,
+    .high-contrast a:focus, .high-contrast button:focus, .high-contrast [role="button"]:focus {
+        background-color: yellow !important;
+        color: #000 !important;
+        outline-color: #fff !important;
+    }
+
+    /* Ajuste para ícones e imagens para que fiquem visíveis */
+    .high-contrast img, .high-contrast i.fas, .high-contrast .galeria-icon {
+        filter: grayscale(100%) contrast(200%) !important;
+    }
+
+    /* Foco visível global */
+    :focus-visible {
+      outline: 3px solid #004b61 !important;
+      outline-offset: 2px;
+    }
+
+    /* Link "Pular para o conteúdo" */
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    .skip-link:focus {
+      position: fixed; /* fixo na tela */
+      top: 10px;
+      left: 10px;
+      width: auto;
+      height: auto;
+      padding: 8px 12px;
+      background: #004b61;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      z-index: 10000;
+    }
+
+    /* Região somente para leitores de tela */
+    .sr-only {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      border: 0 !important;
+    }
+
+    /* Reduz animações se o usuário preferir */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Link de pular conteúdo -->
+  <a href="#ambitos" class="visually-hidden-focusable">Pular para o conteúdo principal</a>
+
+  <header class="hero" role="banner" aria-label="Cabeçalho do site">
+    <img src="./images/logo.png" alt="Logo QG Filmes" style="height: 100px;">
+    <h1 id="site-title">QG Filmes & Consultoria</h1>
+    <p>Transformando inclusão em linguagem audiovisual e política pública</p>
+    <a href="#qgfilmeseassesoria" class="btn btn-main mt-3" aria-describedby="site-title">Conheça Nossos Âmbitos</a>
+  </header>
+
+  <!--SECTION DE SERVIÇOS-->
+  <section id="ambitos" class="py-5" aria-labelledby="ambitos-title" role="region">
+    <div class="container-fluid">
+      <h2 class="section-title text-white text-center mb-5" id="ambitos-title">O que fazemos?</h2>
+      <p class="text-white text-center mb-5">Produção audiovisual, consultoria estratégica e acessibilidade:
+        impulsionando seu negócio para todos.</p>
+
+      <div class="d-flex align-items-center justify-content-between flex-wrap">
+        <div class="row g-4 flex-grow-1" style="max-width: 60%;">
+          <!-- LINHA 1 -->
+          <div class="col-md-4">
+            <div class="ambito-card" tabindex="0" role="button"
+              aria-label="Produção Audiovisual, pressione Enter para mais detalhes">
+              <div class="card-front">
+                <h4>Produção Audiovisual</h4>
+                <p class="text-center">Criamos filmes, curtas, documentários e conteúdos em vídeo com qualidade técnica
+                  e sensibilidade artística.</p>
+              </div>
+              <div class="card-back" aria-hidden="true">
+                <p>Mais do que vídeos, entregamos histórias que comunicam, conectam e geram valor. Cada produção é
+                  pensada com propósito, acessibilidade e foco no seu público.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="ambito-card" tabindex="0" role="button"
+              aria-label="Edição e Pós-Produção, pressione Enter para mais detalhes">
+              <div class="card-front">
+                <h4>Edição e Pós-Produção</h4>
+                <p class="text-center">Contamos com uma equipe de especialistas para cuidar da edição e pós-produção dos
+                  seus projetos audiovisuais, com precisão técnica e sensibilidade criativa.</p>
+              </div>
+              <div class="card-back" aria-hidden="true">
+                <p>Damos o acabamento que seu projeto merece: cortes precisos, trilhas sonoras, correção de cor e
+                  acessibilidade. Cada detalhe é pensado para emocionar, comunicar e impressionar.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="ambito-card" tabindex="0" role="button"
+              aria-label="Workshops e Oficinas, pressione Enter para mais detalhes">
+              <div class="card-front">
+                <h4>Workshops e Oficinas</h4>
+                <p class="text-center">Promovemos workshops e oficinas voltados à capacitação em audiovisual, com
+                  conteúdos acessíveis para iniciantes e aprofundamento para profissionais da área.</p>
+              </div>
+              <div class="card-back" aria-hidden="true">
+                <p>Nossos encontros unem prática e teoria para desenvolver habilidades reais. Compartilhamos
+                  conhecimento com foco em inclusão, criatividade e fortalecimento do setor cultural.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- LINHA 2 -->
+          <div class="col-md-4">
+            <div class="ambito-card" tabindex="0" role="button"
+              aria-label="Assessoria Cultural, pressione Enter para mais detalhes">
+              <div class="card-front">
+                <h4>Assessoria Cultural</h4>
+                <p class="text-center">Oferecemos serviços completos de produção e assessoria para projetos culturais,
+                  apoiando cada etapa: da ideia inicial à execução e divulgação.</p>
+              </div>
+              <div class="card-back" aria-hidden="true">
+                <p>Ajudamos você a transformar iniciativas em ações culturais de impacto. Com planejamento estratégico,
+                  orientação técnica e foco em acessibilidade, potencializamos resultados e garantimos relevância.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="ambito-card" tabindex="0" role="button"
+              aria-label="Acessibilidade em Eventos e Projetos, pressione Enter para mais detalhes">
+              <div class="card-front">
+                <h4>Acessibilidade em Eventos e Projetos</h4>
+                <p class="text-center">Oferecemos serviços completos de acessibilidade para garantir que todos possam
+                  participar e aproveitar eventos e projetos com autonomia e dignidade.</p>
+              </div>
+              <div class="card-back" aria-hidden="true">
+                <p>Desenvolvemos soluções inclusivas como intérprete de Libras, audiodescrição, legendas e materiais
+                  adaptados. Promovemos a cultura do acesso para públicos diversos, com compromisso e sensibilidade.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="ambito-card" tabindex="0" role="button"
+              aria-label="Espaços Culturais, pressione Enter para mais detalhes">
+              <div class="card-front">
+                <h4>Espaços Culturais</h4>
+                <p class="text-center">Proporcionamos ambientes acolhedores e inclusivos para exposições, apresentações,
+                  debates, oficinas e eventos artísticos diversos.</p>
+              </div>
+              <div class="card-back" aria-hidden="true">
+                <p>Mais que espaço físico, oferecemos um território de escuta, expressão e pertencimento. Nossos espaços
+                  culturais valorizam a diversidade, promovem acessibilidade e fortalecem o encontro entre artistas e
+                  comunidade.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ambito-image-container" aria-hidden="true">
+          <img src="./images/imagem-ambito.jpeg" alt="Arte lateral em degradê" class="ambito-img"
+            style="height: 400px;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="galeria-section py-5" role="region" aria-labelledby="galeria-title">
+    <div class="container text-center">
+      <h2 class="galeria-title mb-3" id="galeria-title">Galeria e Portfólio</h2>
+      <p class="galeria-desc mb-5">Explore nossas produções, eventos e projetos marcantes.</p>
+
+      <div class="row justify-content-center g-4">
+        <!-- Card Galeria -->
+        <div class="col-md-4">
+          <a href="./galeria.html" class="galeria-card" aria-label="Ver Galeria de fotos e vídeos">
+            <div class="galeria-icon" aria-hidden="true">📸</div>
+            <h5>Ver Galeria</h5>
+            <p>Fotos e vídeos das nossas produções culturais e oficinas.</p>
+          </a>
+        </div>
+
+        <!-- Card Notícias -->
+        <div class="col-md-4">
+          <a href="./noticias.html" class="galeria-card galeria-secondary" aria-label="Últimas Notícias do QG">
+            <div class="galeria-icon" aria-hidden="true">📰</div>
+            <h5>Últimas Notícias</h5>
+            <p>Acompanhe nossos eventos, conquistas e destaques recentes.</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="direcionamento-moderno py-5" role="region" aria-labelledby="qgfilmeseassesoria">
+    <div class="container">
+      <h2 class="text-center direcionamento-titulo mb-5" data-aos="fade-up" id="qgfilmeseassesoria">Por Onde Você Quer
+        Começar?</h2>
+
+      <div class="row g-4 justify-content-center">
+        <!-- Bloco QG Filmes -->
+        <div class="col-md-6">
+          <div class="bloco-direcionamento" data-aos="fade-right" data-aos-duration="1000">
+            <div class="icone-direcionamento" aria-hidden="true">
+              <i class="fas fa-video"></i>
+            </div>
+            <h3>QG Filmes</h3>
+            <p>Conteúdos audiovisuais com acessibilidade, oficinas, mostras e projetos criativos.</p>
+            <a href="./filmes.html" class="btn btn-direcionamento mt-2" aria-label="Ver mais sobre QG Filmes">Ver
+              Mais</a>
+          </div>
+        </div>
+
+        <!-- Bloco Consultoria -->
+        <div class="col-md-6">
+          <div class="bloco-direcionamento consultoria" data-aos="fade-left" data-aos-duration="1000">
+            <div class="icone-direcionamento" aria-hidden="true">
+              <i class="fas fa-hands-helping"></i>
+            </div>
+            <h3>Consultoria & Acessibilidade</h3>
+            <p>Elaboração de projetos, editais inclusivos e políticas públicas para a cultura.</p>
+            <a href="./consultoria.html" class="btn btn-direcionamento mt-2"
+              aria-label="Ver mais sobre Consultoria e Acessibilidade">Ver Mais</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="oficinas-bloco py-5" role="region" aria-labelledby="oficinas-title">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <h2 class="oficinas-title mb-3" id="oficinas-title">Participe das Oficinas do QG</h2>
+          <p class="oficinas-desc mb-4">
+            Cultura, inclusão e aprendizado acessível.<br>
+            Inscreva-se e viva experiências transformadoras!
+          </p>
+          <a href="./todainscrição.html" class="btn btn-inscricao"
+            aria-label="Ir para a página de inscrição das oficinas">
+            Quero Me Inscrever
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer role="contentinfo" aria-label="Rodapé do site">
+    <p>&copy; 2024 QG - Inovação em Acessibilidade. Todos os direitos reservados.</p>
+    <a href="https://www.instagram.com/qgfilmespp" target="_blank" rel="noopener noreferrer" class="social-icon"
+      aria-label="Instagram QG Filmes">
+      <img src="./icons/insta.png" alt="Instagram">
+    </a>
+    <a href="https://www.facebook.com/QGfilmesPP" target="_blank" rel="noopener noreferrer" class="social-icon"
+      aria-label="Facebook QG Filmes">
+      <img src="./icons/face.png" alt="Facebook">
+    </a>
+  </footer>
+
+  <!-- ======= MENU DE ACESSIBILIDADE (ACRÉSCIMO) ======= -->
+
+  <div class="acessibilidade-container" role="navigation" aria-label="Ferramentas de acessibilidade">
+    <div class="acessibilidade-btns" id="acessibilidadeBtns">
+      <button id="btn-contraste" type="button" aria-label="Alternar modo de alto contraste"
+        aria-pressed="false">⚫</button>
+      <button id="btn-aumentar-fonte" type="button" aria-label="Aumentar tamanho da fonte">A+</button>
+      <button id="btn-diminuir-fonte" type="button" aria-label="Diminuir tamanho da fonte">A-</button>
+      <button id="btn-tts" type="button" aria-label="Ativar leitura de tela"><i class="fas fa-volume-up"
+          aria-hidden="true"></i></button>
+      <button id="btn-reset" type="button" aria-label="Redefinir configurações de acessibilidade"><i class="fas fa-undo"
+          aria-hidden="true"></i></button>
+    </div>
+    <button class="btn-acessibilidade-toggle" aria-expanded="false" aria-controls="acessibilidadeBtns"
+      aria-label="Abrir ou fechar menu de acessibilidade"><img src="./images/acessibilidade.png" alt="logo universal de acessibilidade" style="width: 50px; height: 50px;"></button>
+  </div>
+
+  <div id="sr-alert" class="sr-only" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+  <div vw class="enabled">
+    <div vw-access-button class="active" role="button" aria-label="Ativar tradutor VLibras"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Elementos do DOM
+      const body = document.body;
+      const acessibilidadeMenu = document.getElementById('acessibilidadeBtns');
+      const toggleMenuBtn = document.querySelector('.btn-acessibilidade-toggle');
+      const srAlertEl = document.getElementById('sr-alert');
+
+      // Estado
+      let baseFontSize = parseInt(getComputedStyle(body).fontSize) || 16;
+
+      // Utilitário para anunciar mudanças
+      const srAlert = (msg) => {
+        if (!srAlertEl) return;
+        srAlertEl.textContent = ''; // Força atualização para leitores de tela
+        setTimeout(() => { srAlertEl.textContent = msg; }, 10);
+      };
+
+      // Abrir/Fechar menu
+      toggleMenuBtn.addEventListener('click', () => {
+        const isOpen = acessibilidadeMenu.style.display === 'flex';
+        acessibilidadeMenu.style.display = isOpen ? 'none' : 'flex';
+        toggleMenuBtn.setAttribute('aria-expanded', !isOpen);
+        srAlert(isOpen ? 'Menu de acessibilidade fechado' : 'Menu de acessibilidade aberto');
+      });
+
+      // Funções de acessibilidade
+      const toggleContraste = () => {
+        const isPressed = body.classList.toggle('high-contrast');
+        document.getElementById('btn-contraste').setAttribute('aria-pressed', isPressed);
+        srAlert(isPressed ? 'Alto contraste ativado' : 'Alto contraste desativado');
+      };
+
+      const changeFontSize = (increase) => {
+        const newSize = increase ? baseFontSize + 2 : baseFontSize - 2;
+        if (newSize >= 12 && newSize <= 24) { // Limites para o tamanho da fonte
+          baseFontSize = newSize;
+          body.style.fontSize = `${baseFontSize}px`;
+          srAlert(increase ? 'Fonte aumentada' : 'Fonte diminuída');
+        }
+      };
+
+      const resetAcessibilidade = () => {
+        body.classList.remove('high-contrast');
+        document.getElementById('btn-contraste').setAttribute('aria-pressed', 'false');
+        baseFontSize = 16;
+        body.style.fontSize = `${baseFontSize}px`;
+        window.speechSynthesis?.cancel();
+        srAlert('Configurações de acessibilidade redefinidas');
+      };
+
+      const ativarLeitura = () => {
+        try {
+          const selection = window.getSelection()?.toString().trim();
+          const mainContent = document.getElementById('main-content')?.innerText || body.innerText;
+          const texto = selection && selection.length > 10 ? selection : mainContent;
+
+          const utter = new SpeechSynthesisUtterance(texto);
+          utter.lang = 'pt-BR';
+          window.speechSynthesis.cancel();
+          window.speechSynthesis.speak(utter);
+          srAlert('Leitura iniciada');
+        } catch (e) {
+          console.error('TTS falhou:', e);
+          srAlert('Seu navegador não suporta a leitura em voz alta.');
+        }
+      };
+
+      // Delegação de eventos no menu
+      acessibilidadeMenu.addEventListener('click', (e) => {
+        const button = e.target.closest('button');
+        if (!button) return;
+
+        switch (button.id) {
+          case 'btn-contraste': toggleContraste(); break;
+          case 'btn-aumentar-fonte': changeFontSize(true); break;
+          case 'btn-diminuir-fonte': changeFontSize(false); break;
+          case 'btn-tts': ativarLeitura(); break;
+          case 'btn-reset': resetAcessibilidade(); break;
+        }
+      });
+
+      // Acessibilidade nos cards: Enter ou Espaço "vira" o card
+      document.querySelectorAll('.ambito-card').forEach(card => {
+        card.addEventListener('keydown', (ev) => {
+          if (ev.key === 'Enter' || ev.key === ' ') {
+            ev.preventDefault();
+            const isFlipped = card.getAttribute('data-flipped') === 'true';
+            card.setAttribute('data-flipped', !isFlipped);
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Filmes | QG Filmes e Consultoria</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap, AOS, Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fdfdfd;
+      color: #00333f;
+    }
+
+    /* Navbar padrão */
+    .navbar-nav .nav-link {
+      font-weight: 500;
+      color: #004b61;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+      color: #f8a203;
+    }
+
+    .hero-banner {
+      background: linear-gradient(135deg, #f8a203, #1796b6);
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+      background-image: url('./images/Banner\ para\ site.jpg');
+      background-size: cover;
+      background-position: center;
+      background-blend-mode: multiply;
+      min-height: 65vh;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .section {
+      padding: 60px 20px;
+    }
+
+    .section-dark {
+      background-color: #f8f9fa;
+    }
+
+    .section-white {
+      background-color: #ffffff;
+    }
+
+    .filme-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .filme-box img {
+      max-width: 250px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .filme-box .descricao {
+      flex: 1;
+    }
+
+    .filme-box .descricao h3 {
+      color: #004b61;
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    .testimonial {
+      background: #fff;
+      border-left: 4px solid #1796b6;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .testimonial p {
+      font-style: italic;
+    }
+
+    .testimonial small {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+      color: #004b61;
+    }
+
+    footer {
+      background-color: #fff;
+      text-align: center;
+      padding: 20px;
+      color: #666;
+      border-top: 1px solid #ddd;
+    }
+
+
+    .social-icon img {
+      height: 30px;
+      margin: 0 10px;
+    }
+    /* =========================
+        ACESSIBILIDADE (ACRÉSCIMO)
+        ========================= */
+    /* Menu flutuante ♿ */
+    .acessibilidade-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .acessibilidade-btns {
+      display: none;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .acessibilidade-btns button {
+      background-color: #f8a203;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: transform 0.3s, background 0.3s;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+    }
+
+    .acessibilidade-btns button:hover,
+    .acessibilidade-btns button:focus {
+      transform: scale(1.15);
+      background-color: #1796b6;
+      outline: 3px solid #004b61;
+    }
+
+    .btn-acessibilidade-toggle {
+      background-color: #004b61;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: transform 0.3s, background 0.3s;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
+    }
+
+    .btn-acessibilidade-toggle:hover,
+    .btn-acessibilidade-toggle:focus {
+      transform: scale(1.15);
+      background-color: #1796b6;
+      outline: 3px solid #f8a203;
+    }
+
+    /* ---- Alto contraste CORRIGIDO ---- */
+    .high-contrast {
+        background-color: #000 !important;
+        color: #fff !important;
+    }
+
+    /* Regra "coringa" para forçar a herança em todos os elementos filhos. */
+    .high-contrast * {
+        background-color: transparent !important;
+        background-image: none !important; /* Remove gradientes e imagens de fundo */
+        color: inherit !important;
+        border-color: yellow !important;
+        box-shadow: none !important; /* Remove sombras */
+    }
+
+    /* Estiliza links, botões e elementos interativos para se destacarem */
+    .high-contrast a,
+    .high-contrast button,
+    .high-contrast [role="button"] {
+        color: yellow !important;
+        border: 2px solid yellow !important;
+    }
+
+    /* Garante que o estado :hover e :focus seja visível */
+    .high-contrast a:hover, .high-contrast button:hover, .high-contrast [role="button"]:hover,
+    .high-contrast a:focus, .high-contrast button:focus, .high-contrast [role="button"]:focus {
+        background-color: yellow !important;
+        color: #000 !important;
+        outline-color: #fff !important;
+    }
+
+    /* Ajuste para ícones e imagens para que fiquem visíveis */
+    .high-contrast img, .high-contrast i.fas, .high-contrast .galeria-icon {
+        filter: grayscale(100%) contrast(200%) !important;
+    }
+
+    /* Foco visível global */
+    :focus-visible {
+      outline: 3px solid #004b61 !important;
+      outline-offset: 2px;
+    }
+
+    /* Link "Pular para o conteúdo" */
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    .skip-link:focus {
+      position: fixed; /* fixo na tela */
+      top: 10px;
+      left: 10px;
+      width: auto;
+      height: auto;
+      padding: 8px 12px;
+      background: #004b61;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      z-index: 10000;
+    }
+
+    /* Região somente para leitores de tela */
+    .sr-only {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      border: 0 !important;
+    }
+
+    /* Reduz animações se o usuário preferir */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="./images/logop.png" alt="Logo QG" style="height: 50px;">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navQG">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navQG">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+          <li class="nav-item"><a class="nav-link active" href="filmes.html">QG Filmes</a></li>
+          <li class="nav-item"><a class="nav-link" href="consultoria.html">QG Consultoria</a></li>
+          <li class="nav-item"><a class="nav-link" href="galeria.html">Galeria</a></li>
+          <li class="nav-item"><a class="nav-link" href="noticias.html">Notícias</a></li>
+          <li class="nav-item"><a class="nav-link" href="todainscrição.html">Inscrição</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Banner Hero -->
+  <section class="hero-banner">
+  </section>
+
+  <!-- Produções em Destaque -->
+  <section class="section section-white container">
+    <h2 class="text-center mb-5" data-aos="fade-up">Nossas Produções</h2>
+
+    <div class="filme-box" data-aos="fade-right">
+      <img src="./images/boiadeiro.jpg" alt="Cartaz do filme A História de um Boiadeiro">
+      <div class="descricao">
+        <h3>A História de um Boiadeiro</h3>
+        <p>Um emocionante curta sobre identidade, tradição e resistência. A narrativa acompanha a jornada de um vaqueiro
+          nordestino em um mundo cada vez mais urbano, com trilha original e recursos de acessibilidade.</p>
+      </div>
+    </div>
+
+    <div class="filme-box flex-row-reverse" data-aos="fade-left">
+      <img src="./images/corvo.jpg" alt="Cartaz do filme O Corvo">
+      <div class="descricao">
+        <h3>O Corvo</h3>
+        <p>Inspirado na obra de Edgar Allan Poe, essa produção experimental mistura poesia, performance e trilha sonora
+          imersiva. Releitura visual intensa com interpretação em Libras e audiodescrição.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mostra Curta na Linha -->
+  <section class="section section-dark container">
+    <h2 class="text-center mb-5" data-aos="fade-up">Mostra Curta na Linha </h2>
+    <div data-aos="fade-up">
+      <p>A Mostra Curta na Linha, em sua quarta edição, é um evento de cinema independente que se destaca por seu
+        compromisso com a inclusão. Este ano, a mostra se internacionalizou, recebendo produções de várias partes do
+        mundo, reafirmando seu caráter acessível, com equipe composta por profissionais com deficiência visual,
+        auditiva, TEA e física.</p>
+      <p>Com o tema “Cinema e Inclusão”, a mostra promove o cinema independente regional, nacional e internacional com
+        mais de 30 horas de conteúdo, incluindo oficinas formativas e debates sobre acessibilidade.</p>
+    </div>
+  </section>
+
+  <!-- Depoimentos -->
+
+  <section class="section section-white container">
+    <h2 class="text-center mb-5" data-aos="fade-up">Depoimentos</h2>
+    <!-- Section Em Breve -->
+    <section class="em-breve-section py-5 text-center"
+      style="background: linear-gradient(120deg, #f8a203, #1796b6); color: white;">
+      <div class="container">
+        <h2 class="display-5 fw-bold" data-aos="fade-up">Em breve</h2>
+        <p class="lead mt-3" data-aos="fade-up" data-aos-delay="200">
+          Novos conteúdos e novidades estarão disponíveis em breve. Fique atento!
+        </p>
+      </div>
+    </section>
+
+    <!-- <div class="testimonial" data-aos="fade-up">
+      <p>"Participar de uma oficina da QG Filmes mudou minha percepção sobre o audiovisual e a acessibilidade. Foi uma experiência transformadora."</p>
+      <small>— Mariana Oliveira, estudante de Cinema</small>
+    </div>
+    <div class="testimonial" data-aos="fade-up" data-aos-delay="100">
+      <p>"A Mostra Curta na Linha é um exemplo de como o cinema pode ser acessível, diverso e impactante ao mesmo tempo. Que venha a próxima edição!"</p>
+      <small>— Carlos Lima, produtor cultural</small>
+    </div>
+    <div class="testimonial" data-aos="fade-up" data-aos-delay="200">
+      <p>"Trabalhar com a equipe da QG foi uma das experiências mais inclusivas e respeitosas que já tive no audiovisual. Inclusão de verdade!"</p>
+      <small>— Renata Silva, atriz surda</small>
+    </div> -->
+  </section>
+
+  <footer>
+    <p>&copy; 2024 QG - Inovação em Acessibilidade. Todos os direitos reservados.</p>
+    <a href="https://www.instagram.com/qgfilmespp" target="_blank" class="social-icon">
+      <img src="./icons/insta.png" alt="Instagram">
+    </a>
+    <a href="https://www.facebook.com/QGfilmesPP" target="_blank" class="social-icon">
+      <img src="./icons/face.png" alt="Facebook">
+    </a>
+  </footer>
+
+  <!-- Scripts -->
+
+  <!-- ======= MENU DE ACESSIBILIDADE (ACRÉSCIMO) ======= -->
+
+  <div class="acessibilidade-container" role="navigation" aria-label="Ferramentas de acessibilidade">
+    <div class="acessibilidade-btns" id="acessibilidadeBtns">
+      <button id="btn-contraste" type="button" aria-label="Alternar modo de alto contraste"
+        aria-pressed="false">⚫</button>
+      <button id="btn-aumentar-fonte" type="button" aria-label="Aumentar tamanho da fonte">A+</button>
+      <button id="btn-diminuir-fonte" type="button" aria-label="Diminuir tamanho da fonte">A-</button>
+      <button id="btn-tts" type="button" aria-label="Ativar leitura de tela"><i class="fas fa-volume-up"
+          aria-hidden="true"></i></button>
+      <button id="btn-reset" type="button" aria-label="Redefinir configurações de acessibilidade"><i class="fas fa-undo"
+          aria-hidden="true"></i></button>
+    </div>
+    <button class="btn-acessibilidade-toggle" aria-expanded="false" aria-controls="acessibilidadeBtns"
+      aria-label="Abrir ou fechar menu de acessibilidade"><img src="./images/acessibilidade.png"
+        alt="logo universal de acessibilidade" style="width: 50px; height: 50px;"></button>
+  </div>
+
+  <div id="sr-alert" class="sr-only" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+  <div vw class="enabled">
+    <div vw-access-button class="active" role="button" aria-label="Ativar tradutor VLibras"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Elementos do DOM
+      const body = document.body;
+      const acessibilidadeMenu = document.getElementById('acessibilidadeBtns');
+      const toggleMenuBtn = document.querySelector('.btn-acessibilidade-toggle');
+      const srAlertEl = document.getElementById('sr-alert');
+
+      // Estado
+      let baseFontSize = parseInt(getComputedStyle(body).fontSize) || 16;
+
+      // Utilitário para anunciar mudanças
+      const srAlert = (msg) => {
+        if (!srAlertEl) return;
+        srAlertEl.textContent = ''; // Força atualização para leitores de tela
+        setTimeout(() => { srAlertEl.textContent = msg; }, 10);
+      };
+
+      // Abrir/Fechar menu
+      toggleMenuBtn.addEventListener('click', () => {
+        const isOpen = acessibilidadeMenu.style.display === 'flex';
+        acessibilidadeMenu.style.display = isOpen ? 'none' : 'flex';
+        toggleMenuBtn.setAttribute('aria-expanded', !isOpen);
+        srAlert(isOpen ? 'Menu de acessibilidade fechado' : 'Menu de acessibilidade aberto');
+      });
+
+      // Funções de acessibilidade
+      const toggleContraste = () => {
+        const isPressed = body.classList.toggle('high-contrast');
+        document.getElementById('btn-contraste').setAttribute('aria-pressed', isPressed);
+        srAlert(isPressed ? 'Alto contraste ativado' : 'Alto contraste desativado');
+      };
+
+      const changeFontSize = (increase) => {
+        const newSize = increase ? baseFontSize + 2 : baseFontSize - 2;
+        if (newSize >= 12 && newSize <= 24) { // Limites para o tamanho da fonte
+          baseFontSize = newSize;
+          body.style.fontSize = `${baseFontSize}px`;
+          srAlert(increase ? 'Fonte aumentada' : 'Fonte diminuída');
+        }
+      };
+
+      const resetAcessibilidade = () => {
+        body.classList.remove('high-contrast');
+        document.getElementById('btn-contraste').setAttribute('aria-pressed', 'false');
+        baseFontSize = 16;
+        body.style.fontSize = `${baseFontSize}px`;
+        window.speechSynthesis?.cancel();
+        srAlert('Configurações de acessibilidade redefinidas');
+      };
+
+      const ativarLeitura = () => {
+        try {
+          const selection = window.getSelection()?.toString().trim();
+          const mainContent = document.getElementById('main-content')?.innerText || body.innerText;
+          const texto = selection && selection.length > 10 ? selection : mainContent;
+
+          const utter = new SpeechSynthesisUtterance(texto);
+          utter.lang = 'pt-BR';
+          window.speechSynthesis.cancel();
+          window.speechSynthesis.speak(utter);
+          srAlert('Leitura iniciada');
+        } catch (e) {
+          console.error('TTS falhou:', e);
+          srAlert('Seu navegador não suporta a leitura em voz alta.');
+        }
+      };
+
+      // Delegação de eventos no menu
+      acessibilidadeMenu.addEventListener('click', (e) => {
+        const button = e.target.closest('button');
+        if (!button) return;
+
+        switch (button.id) {
+          case 'btn-contraste': toggleContraste(); break;
+          case 'btn-aumentar-fonte': changeFontSize(true); break;
+          case 'btn-diminuir-fonte': changeFontSize(false); break;
+          case 'btn-tts': ativarLeitura(); break;
+          case 'btn-reset': resetAcessibilidade(); break;
+        }
+      });
+
+      // Acessibilidade nos cards: Enter ou Espaço "vira" o card
+      document.querySelectorAll('.ambito-card').forEach(card => {
+        card.addEventListener('keydown', (ev) => {
+          if (ev.key === 'Enter' || ev.key === ' ') {
+            ev.preventDefault();
+            const isFlipped = card.getAttribute('data-flipped') === 'true';
+            card.setAttribute('data-flipped', !isFlipped);
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
